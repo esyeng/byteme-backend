@@ -1,12 +1,12 @@
 # SassGPT API
 
-The SassGPT API is a Node.js server that uses the OpenAI API to generate sassy responses to user input. It is built using TypeScript and the Bun runtime.
+The SassGPT API is an HTTP server written in the Bun JS runtime (https://bun.sh) that uses the OpenAI API to generate sassy responses to user input.
 
 ## Installation
 
-To install the SassGPT API, you will need to have Node.js and npm installed on your machine. You can download them from the official Node.js website: https://nodejs.org/en/download/
+To install the SassGPT API, you will need to have Node.js  and npm and bun installed on your machine. If you need help with those things, googles not too far from here.
 
-Once you have Node.js and npm installed, you can clone the SassGPT API repository from GitHub:
+Once you have those installed, you can clone the SassGPT API repository from GitHub:
 
 ```
 git clone https://github.com/your-username/sassgpt-api.git
@@ -16,25 +16,19 @@ Then, navigate to the project directory and install the dependencies:
 
 ```
 cd sassgpt-api
-npm install
+bun install
 ```
 
 ## Building
 
-To build the SassGPT API, you can use the following command:
-
-```
-npm run build
-```
-
-This will compile the TypeScript code and output the resulting JavaScript files to the `dist` directory.
+Build workflow in progress, check back soon :)
 
 ## Running
 
-To run the SassGPT API, you can use the following command:
+TTo run the SassGPT API in dev mode, you can use the following command:
 
 ```
-npm start
+bun run dev
 ```
 
 This will start the server and listen for incoming requests on port 8080.
@@ -61,10 +55,10 @@ This will generate a sassy response to the given input and return it in the resp
 
 ## Docker
 
-The SassGPT API can also be run using Docker. To build the Docker image, you can use the following command:
+The SassGPT API can also be run using Docker. To build the Docker image, you can use the following command: (not working yet)
 
 ```
-docker build -t sassgpt-api .
+bun run docker-build.
 ```
 
 This will build the Docker image and tag it with the name `sassgpt-api`.
