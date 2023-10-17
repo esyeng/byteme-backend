@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --watch server.ts",
-    "start": "cd packages && bun run start"
+    "start": "ls -a"
   },
   "devDependencies": {
     "bun-types": "^1.0.6"
