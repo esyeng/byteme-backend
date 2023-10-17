@@ -3,8 +3,17 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun run --watch server.ts",
-    "deploy": "docker-compose up --build && bun run dist/server.js"
+    "dev": "bun --watch run src/server.ts",
+    "start": "bun run dist/server.js",
+    "deploy": "docker-compose up --build && bun run dist/server.js",
+    "build": "bun run build --entry server.ts --out-dir dist",
+    "docker-start": "docker start sassgpt-app-1",
+    "docker-stop": "docker stop sassgpt-app-1",
+    "stop-all": "docker-compose down --rmi all --volumes --remove-orphans",
+    "clean": "rm -rf dist",
+    "clean-all": "rm -rf dist && rm -rf node_modules",
+    "clean-build": "bun run clean && bun run build && bun run start",
+    "clean-deploy": "bun run clean && bun run deploy"
   },
   "devDependencies": {
     "bun-types": "^1.0.6"

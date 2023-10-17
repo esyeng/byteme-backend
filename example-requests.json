@@ -1,0 +1,16 @@
+{
+  "requests": {
+    "postman-test": {
+      "text": "Hey just wanted to test this out from postman, dont mind me!",
+      "role": "user"
+    },
+    "postman-test2": {
+      "text": "What's up, just testing this out again!",
+      "role": "user"
+    },
+    "postman-test3": {
+      "text": "Hey, you're actually stupid! You don't REALLY know things!",
+      "role": "user"
+    }
+  }
+}

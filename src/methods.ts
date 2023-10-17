@@ -14,28 +14,28 @@ import axios from 'axios';
 
 import { headers } from './server';
 
-export const chatGPT = async (req: any, res: any) => {
-  try {
-    const input: string = req.body ? req.body.text ? req.body.text : "nothing substantial": "eh";
-    const role: string = req.body ? req.body.role ? req.body.role: "user": "user";
+export const chatGPT = async (body: any) => {
+    const text = body.body.text;
+    const role = body.body.role;
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
       {
         model: 'gpt-3.5-turbo',
         messages: [
-          {role: 'system', content: `The following is a conversation with an AI personal assistant. The assistant is sassy, creative, clever, and very spicy.\n\n${role}: ${input}\nAI:`},
-          {role: `${role}`, content: `${input}`},
+          {role: 'system', content: `The following is a conversation with an AI personal assistant. The assistant is sassy, creative, clever, and very spicy.\n\n${role}: ${text}\nAI:`},
+          {role: `${role}`, content: `${text}`},
         ],
       },
       {headers},
     );
-    const chatGptResponse = response.data.choices[0].message.content;
-    console.log("GPT Response:", chatGptResponse);
-    res.status(200).json({ message: chatGptResponse });
-
-  } catch (err) {
-    console.log('Error: ' + err);
-    res.status(500).json({ error: 'An error occurred while processing your request' });
-  }
+    console.log("Response:", response);
+    if (!response || !response.data || !response.data.choices) {
+      console.log("No response from GPT");
+      return new Error('An error occurred while processing your request');
+    } else {
+      const chatGptResponse = response.data.choices[0].message.content;
+      console.log("GPT Response:", chatGptResponse);
+      return {message: chatGptResponse};
+    }
 }
 
