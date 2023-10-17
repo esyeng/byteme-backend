@@ -7,6 +7,8 @@ const port: number = parseInt(process.env.PORT || '8080');
 const hostname: string = process.env.BASE_HOST ? process.env.BASE_HOST : 'localhost';
 
 console.log(`🦊 initial values for port: ${port} and hostname: ${hostname}`);
+console.log(`Process var: ${process.env.BASE_HOST}`);
+
 
 const app = new Elysia()
   .onError(({ code, error }) => {
