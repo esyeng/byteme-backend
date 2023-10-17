@@ -6,7 +6,7 @@ const runBun = async () => {
     console.log("Bun in the oven...");
     result = await Bun.build({
       entrypoints: ['./server.ts'],
-      outdir: './dist',
+      outdir: '../dist',
       target: 'bun',
       minify: {
         whitespace: true,

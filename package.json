@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --watch server.ts",
-    "deploy": "docker-compose up --build"
+    "deploy": "docker-compose up --build && bun run dist/server.js"
   },
   "devDependencies": {
     "bun-types": "^1.0.6"

@@ -11,4 +11,4 @@ services:
       - "8080:8080"  # map the host port to the container port
     volumes:
       - ./:/usr/src/app  # map the current directory (source code) to the container directory; consider removing this for production
-    command: ["bun", "run", "dist/index.js"]  # override the default command with the one from your Dockerfile
+    command: ["bun", "run", "index.ts"]  # override the default command with the one from your Dockerfile

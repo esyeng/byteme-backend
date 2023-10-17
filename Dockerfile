@@ -17,4 +17,4 @@ ENV PORT=8080
 EXPOSE $PORT
 
 # Command to run the application
-CMD ["bun", "run", "dist/index.js"]
+CMD ["bun", "run", "index.ts"]
