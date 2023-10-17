@@ -1,0 +1,14 @@
+version: '3.8'  # if no specific features of version 3.8 are used, this can be downgraded to '3' for better compatibility
+
+services:
+  app:
+    build:  # optional, but recommended
+      context: .  # current directory containing the Dockerfile and source code
+      dockerfile: Dockerfile  # this is default, and can be omitted if your file is named "Dockerfile"
+    environment:
+      - PORT=8080  # set the same environment variable as in the Dockerfile, though this is technically redundant as it's already in the Dockerfile
+    ports:
+      - "8080:8080"  # map the host port to the container port
+    volumes:
+      - ./:/usr/src/app  # map the current directory (source code) to the container directory; consider removing this for production
+    command: ["bun", "run", "dist/index.js"]  # override the default command with the one from your Dockerfile

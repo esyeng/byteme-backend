@@ -2,7 +2,7 @@
 FROM oven/bun
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/src
 
 # Copy the local package files to the container's workspace
 COPY ./ ./
@@ -17,4 +17,4 @@ ENV PORT=8080
 EXPOSE $PORT
 
 # Command to run the application
-CMD ["bun", "run", "index.ts"]
+CMD ["bun", "run", "dist/index.js"]
