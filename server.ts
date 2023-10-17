@@ -3,6 +3,12 @@ import { swagger } from '@elysiajs/swagger'
 import { cors } from '@elysiajs/cors';
 import { chatGPT } from './methods';
 
+export const openaiApiKey = process.env.OPENAI_API_KEY;
+export const headers = {
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${openaiApiKey}`,
+};
+
 const port: number = parseInt(process.env.PORT || '8080');
 const hostname: string = process.env.NODE_ENV === 'production' ? 'infinite-mesa-72148-b9fabfeefb78.herokuapp.com' : 'localhost';
 

@@ -12,11 +12,7 @@ import axios from 'axios';
  * @returns A response object with the generated response.
  */
 
-const openaiApiKey = process.env.OPENAI_API_KEY;
-const headers = {
-  'Content-Type': 'application/json',
-  'Authorization': `Bearer ${openaiApiKey}`,
-};
+import { headers } from './server';
 
 export const chatGPT = async (req: any, res: any) => {
   try {
