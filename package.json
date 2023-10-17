@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --watch server.ts",
-    "start": "bun install && bun run server.ts"
+    "start": "bun install axios cors elysia @elysiajs/cors @elysiajs/static @elysiajs/swagger && bun run server.ts"
   },
   "devDependencies": {
     "bun-types": "^1.0.6"
