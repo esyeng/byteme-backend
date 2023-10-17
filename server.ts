@@ -23,17 +23,20 @@ const app = new Elysia()
 console.log(`🦊 Elysia is running at ${app.server?.hostname} on port ${app.server?.port}...`);
 
 const defaultEntry = async (req: any, res: any) => {
+  console.log('defaultEntry', req, res);
   try {
-    res.json({message: `Hello from the one! Bun is fun.`});
+    res.json({message: `Hello from the one! Bun is fun.`, request: req, response: res});
   } catch (err) {
     console.log('Error message: ' + err);
     res.error(err);
   }
 }
 
+app.get("/", () => defaultEntry);
+
 app
   .group("/v1", app => app)
-  .get("/", () => defaultEntry)
+  // .get("/", () => defaultEntry)
     .group("/api", app => app
       .post("/chat", () => chatGPT));
 
