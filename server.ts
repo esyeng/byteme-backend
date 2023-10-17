@@ -24,7 +24,7 @@ console.log(`🦊 Elysia is running at ${app.server?.hostname} on port ${app.ser
 
 const defaultEntry = async (req: any, res: any) => {
   try {
-    res.send(`Hello from the one! Bun is fun.`);
+    res.json({message: `Hello from the one! Bun is fun.`});
   } catch (err) {
     console.log('Error message: ' + err);
     res.error(err);
