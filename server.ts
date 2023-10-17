@@ -3,7 +3,7 @@ import { swagger } from '@elysiajs/swagger'
 import { cors } from '@elysiajs/cors';
 import { chatGPT } from './methods';
 
-const port: number = parseInt(process.env.PORT || '5000');
+const port: number = parseInt(process.env.PORT || '8080');
 const hostname: string = process.env.BASE_HOST ? process.env.BASE_HOST : 'localhost';
 
 console.log(`🦊 initial values for port: ${port} and hostname: ${hostname}`);
