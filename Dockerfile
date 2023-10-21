@@ -10,7 +10,7 @@ COPY package.json .
 COPY bun.lockb .
 
 # Install production dependencies
-RUN bun install --production
+RUN bun install
 
 # # Install any dependencies
 # RUN bun install
@@ -25,4 +25,4 @@ EXPOSE $PORT
 
 ENV NODE_ENV production
 # Command to run the application
-CMD ["bun", "run", "index.ts"]
+CMD ["bun", "run", "src/index.ts"]
