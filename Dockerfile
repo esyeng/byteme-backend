@@ -25,4 +25,4 @@ EXPOSE $PORT
 
 ENV NODE_ENV production
 # Command to run the application
-CMD ["bun", "run", "src/index.ts"]
+CMD ["bun", "run", "src/server.ts"]
