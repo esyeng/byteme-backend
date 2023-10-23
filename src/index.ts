@@ -1,12 +1,12 @@
 console.log("It's Buntime!!");
-
+// import config from './config.json' as { [key: string]: any };
 const runBun = async () => {
   let result;
   try {
     console.log("Bun in the oven...");
     result = await Bun.build({
       entrypoints: ['./server.ts'],
-      outdir: '../dist',
+      outdir: '../',
       target: 'bun',
       minify: {
         whitespace: true,

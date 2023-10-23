@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { systemRoles } from './content/system_roles';
 /**
  * Contains server methods to be called in server.
  * @remarks
@@ -17,14 +18,16 @@ import { headers } from './server';
 export const chatGPT = async (body: any) => {
     const text = body.body.text;
     const role = body.body.role;
+    const {sass} = systemRoles;
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
       {
         model: 'gpt-3.5-turbo',
         messages: [
-          {role: 'system', content: `The following is a conversation with an AI personal assistant. The assistant is sassy, creative, clever, and very spicy.\n\n${role}: ${text}\nAI:`},
+          {role: sass.role, content: sass.message},
           {role: `${role}`, content: `${text}`},
         ],
+        stream: true
       },
       {headers},
     );
