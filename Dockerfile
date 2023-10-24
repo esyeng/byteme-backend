@@ -25,6 +25,5 @@ ENV HOST=0.0.0.0
 # Allow traffic on specified port
 EXPOSE $PORT
 
-ENV NODE_ENV production
 # Command to run the application
 CMD ["bun", "run", "src/server.ts"]
