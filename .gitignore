@@ -173,6 +173,10 @@ dist
 # IntelliJ based IDEs
 .idea
 
+# Debug config
+.vscode/launch.json
+example-requests.json
+
 # Finder (MacOS) folder config
 .DS_Store
 
