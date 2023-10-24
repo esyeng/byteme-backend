@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "bun --watch run src/server.ts",
     "start": "bun run dist/server.js",
-    "deploy": "docker-compose up --build && bun run dist/server.js",
+    "deploy": "docker build -t sassy-bun . && docker run -p 8080:8080 sassy-bun",
     "build": "bun run build --entry server.ts --out-dir dist",
     "docker-start": "docker start sassgpt-app-1",
     "docker-stop": "docker stop sassgpt-app-1",
