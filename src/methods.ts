@@ -27,7 +27,6 @@ export const chatGPT = async (body: any) => {
           {role: sass.role, content: sass.message},
           {role: `${role}`, content: `${text}`},
         ],
-        stream: true
       },
       {headers},
     );
