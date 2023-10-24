@@ -25,13 +25,18 @@ const app = new Elysia()
         const response = await chatGPT(body);
         return { success: true, response };
       })
+      .post("/test", async body => {
+        console.log("test function called");
+        const fun = body? body.body? body.body.text? body.body.text: body.body : body : "nothing here at all..";
+        return { success: true, response: fun };
+      })
   )
   .use(cors())
   .use(swagger())
 
   .listen({
     port: process.env.PORT || 8080,
-    hostname: process.env.HOST || "0.0.0.0"
+    hostname: process.env.HOST || "0.0.0.0",
   });
 
 console.log(
