@@ -16,27 +16,28 @@ import { systemRoles } from "./content/system_roles";
 import { headers } from "./server";
 
 export const chatGPT = async (body: any) => {
-  const text = body.body.text;
-  const role = body.body.role;
-  const { sass } = systemRoles;
-  const response = await axios.post(
-    "https://api.openai.com/v1/chat/completions",
-    {
-      model: "gpt-3.5-turbo",
-      messages: [
-        { role: sass.role, content: sass.message },
-        { role: `${role}`, content: `${text}` },
-      ],
-    },
-    { headers }
-  );
-  console.log("Response:", response);
-  if (!response || !response.data || !response.data.choices) {
-    console.log("No response from GPT");
-    return new Error("An error occurred while processing your request");
-  } else {
-    const chatGptResponse = response.data.choices[0].message.content;
-    console.log("GPT Response:", chatGptResponse);
-    return { message: chatGptResponse };
-  }
-};
+    const text = body.body.text;
+    const role = body.body.role;
+    const {sass} = systemRoles;
+    const response = await axios.post(
+      'https://api.openai.com/v1/chat/completions',
+      {
+        model: 'gpt-4',
+        messages: [
+          {role: sass.role, content: sass.message},
+          {role: `${role}`, content: `${text}`},
+        ],
+      },
+      {headers},
+    );
+    console.log("Response:", response);
+    if (!response || !response.data || !response.data.choices) {
+      console.log("No response from GPT");
+      return new Error('An error occurred while processing your request');
+    } else {
+      const chatGptResponse = response.data.choices[0].message.content;
+      console.log("GPT Response:", chatGptResponse);
+      return {message: chatGptResponse};
+    }
+}
+
