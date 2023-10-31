@@ -26,10 +26,12 @@
     "@elysiajs/cors": "^0.7.1",
     "@elysiajs/static": "^0.7.1",
     "@elysiajs/swagger": "^0.7.3",
+    "@lucia-auth/adapter-prisma": "3.0.2",
     "axios": "^1.5.1",
     "bun": "^1.0.6",
     "cors": "^2.8.5",
     "elysia": "^0.7.17",
+    "lucia": "2.7.2",
     "ts-node": "^10.9.1",
     "tsc": "^2.0.4",
     "typescript": "^5.2.2"
