@@ -180,3 +180,5 @@ example-requests.json
 # Finder (MacOS) folder config
 .DS_Store
 
+.sys.ts
+

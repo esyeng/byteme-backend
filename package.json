@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch run src/server.ts",
+    "debug": "node --inspect-brk=0.0.0.0:9229 -r ts-node/register src/server.ts",
     "start": "bun run dist/server.js",
     "deploy": "docker build -t sassy-bun . && docker run -p 8080:8080 sassy-bun",
     "build": "bun run build --entry server.ts --out-dir dist",
