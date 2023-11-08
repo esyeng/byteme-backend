@@ -21,6 +21,7 @@
   },
   "include": [
     "src/**/*",
-    ".sys.ts"
+    ".sys.ts",
+    "src/.secret.ts"
   ]
 }

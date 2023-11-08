@@ -1,6 +1,15 @@
 import axios from "axios";
 import sys from "../.sys";
-const byteMeDefualt = process.env.BYTEME_DEFAULT ? process.env.BYTEME_DEFAULT : sys.messages["byteme_default"];
+import { accessSecret } from "./.secret";
+
+const secret = await accessSecret();
+
+const byteMeDefualt = secret
+    ?
+    secret
+    : process.env.BYTEME_DEFAULT
+        ? process.env.BYTEME_DEFAULT
+        : sys.messages["byteme_default"];
 /**
  * Contains server methods to be called in server.
  */
