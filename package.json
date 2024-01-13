@@ -25,7 +25,7 @@
   "dependencies": {
     "@elysiajs/cors": "^0.7.1",
     "@elysiajs/static": "^0.7.1",
-    "@elysiajs/swagger": "^0.7.3",
+    "@elysiajs/swagger": "^0.8.0",
     "@lucia-auth/adapter-prisma": "3.0.2",
     "axios": "^1.5.1",
     "bun": "^1.0.6",
