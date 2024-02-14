@@ -6,12 +6,17 @@ import sys from "../.sys";
 const secret = null;
 
 
-const byteMeDefualt = secret
-    ?
-    secret
-    : process.env.BYTEME_DEFAULT
+const byteMeDefualt = process.env.BYTEME_DEFAULT
         ? process.env.BYTEME_DEFAULT
         : sys.messages["byteme_default"];
+
+        // const byteMeDefualt = secret
+        // ?
+        // secret
+        // : process.env.BYTEME_DEFAULT
+        //     ? process.env.BYTEME_DEFAULT
+        //     : sys.messages["byteme_default"];
+
 /**
  * Contains server methods to be called in server.
  */
@@ -38,6 +43,10 @@ export const byteMe = async (req: any) => {
         return new Error("No messages received");
     }
     try {
+        console.log(`incoming data: {
+            messages: [${messages[0].content}],
+            model: ${model},
+        }`)
         const response = await axios.post(
             "https://api.openai.com/v1/chat/completions",
             {
@@ -55,7 +64,7 @@ export const byteMe = async (req: any) => {
             return { message: gptResponse };
         }
     } catch (error) {
-        console.log("Error:", error);
+        console.log("Caught exception:", error.response.data);
         return { message: error };
     }
 };
@@ -63,3 +72,10 @@ export const byteMe = async (req: any) => {
 
 
 
+/**
+ * {
+      "messages": [{"content": "What's up, just testing this out again! Tell me about yourself? I'd love to know what you can do!", "role": "user"}],
+      "model": "gpt-4-1106-preview",
+      "temperature": 0.5
+}
+ */
