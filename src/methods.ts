@@ -1,8 +1,10 @@
 import axios from "axios";
 import sys from "../.sys";
-import { accessSecret } from "./.secret";
+// import { accessSecret } from "./.secret";
 
-const secret = await accessSecret();
+// const secret = await accessSecret();
+const secret = null;
+
 
 const byteMeDefualt = secret
     ?
