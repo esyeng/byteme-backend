@@ -67,5 +67,5 @@ console.log(
 
 const defaultEntry = () => {
     console.log("defaultEntry function called");
-    return { message: `Hello from the one! Bun is fun.` };
+    return { message: `Hello from 2024! Bun is fun.` };
 };
