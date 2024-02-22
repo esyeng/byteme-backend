@@ -16,6 +16,8 @@ export const openaiApiKey = process.env.OPENAI_API_KEY;
 export const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${openaiApiKey}`,
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
 };
 
 console.log(`🦊 Before server init`);

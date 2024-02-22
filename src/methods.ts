@@ -1,5 +1,8 @@
 import axios from "axios";
 import sys from "../.sys";
+
+const byteMeDefualt = process.env.BYTEME_DEFAULT ? process.env.BYTEME_DEFAULT : sys.messages["byteme_default"];
+
 /**
  * Contains server methods to be called in server.
  */
@@ -20,21 +23,18 @@ interface Chat {
 
 export const byteMe = async (req: any) => {
     const { messages, id, temperature, model } = req?.body;
-    const byteme = sys.messages["byteme_default"];
+    const byteme = JSON.parse(JSON.stringify(byteMeDefualt));
+
     if (!messages || messages.length === 0) {
         console.log("No messages received");
         return new Error("No messages received");
     }
     try {
-        console.log(`incoming data: {
-            messages: [${messages[0].content}],
-            model: ${model},
-        }`)
         const response = await axios.post(
             "https://api.openai.com/v1/chat/completions",
             {
                 model: model,
-                messages: [{ role: byteme.role, content: byteme.message }, ...messages],
+                messages: [{ ...JSON.parse(byteme) }, ...messages],
                 temperature: temperature
             },
             { headers }
@@ -46,19 +46,8 @@ export const byteMe = async (req: any) => {
             const gptResponse = response.data.choices[0].message.content;
             return { message: gptResponse };
         }
-    } catch (error) {
-        console.log("Caught exception:", error.response.data);
+    } catch (error: any) {
+        console.log("Caught exception:", error);
         return { message: error };
     }
 };
-
-
-
-
-/**
- * {
-      "messages": [{"content": "What's up, just testing this out again! Tell me about yourself? I'd love to know what you can do!", "role": "user"}],
-      "model": "gpt-4-1106-preview",
-      "temperature": 0.5
-}
- */
