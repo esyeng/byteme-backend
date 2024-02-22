@@ -1,22 +1,5 @@
 import axios from "axios";
 import sys from "../.sys";
-// import { accessSecret } from "./.secret";
-
-// const secret = await accessSecret();
-const secret = null;
-
-
-const byteMeDefualt = process.env.BYTEME_DEFAULT
-        ? process.env.BYTEME_DEFAULT
-        : sys.messages["byteme_default"];
-
-        // const byteMeDefualt = secret
-        // ?
-        // secret
-        // : process.env.BYTEME_DEFAULT
-        //     ? process.env.BYTEME_DEFAULT
-        //     : sys.messages["byteme_default"];
-
 /**
  * Contains server methods to be called in server.
  */
@@ -37,7 +20,7 @@ interface Chat {
 
 export const byteMe = async (req: any) => {
     const { messages, id, temperature, model } = req?.body;
-    const byteme = JSON.parse(JSON.stringify(byteMeDefualt));
+    const byteme = sys.messages["byteme_default"];
     if (!messages || messages.length === 0) {
         console.log("No messages received");
         return new Error("No messages received");
