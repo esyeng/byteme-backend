@@ -183,4 +183,12 @@ example-requests.json
 .sys.ts
 wip.ts
 src/.secret.ts
+src/secret.js
+src/server.js
 
+src/.stringKeeper.ts
+src/.stringKeeper.js
+.sys.js
+
+
+src/methods.js

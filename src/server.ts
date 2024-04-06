@@ -9,7 +9,7 @@
 import { Elysia } from "elysia";
 import { swagger } from "@elysiajs/swagger";
 import { cors } from "@elysiajs/cors";
-import { byteMe, claudia } from "./methods";
+import { byteMe, ada } from "./methods";
 import { auth } from "./auth";
 
 export const openaiApiKey = process.env.OPENAI_API_KEY;
@@ -45,9 +45,9 @@ const app = new Elysia()
                 const response = await byteMe(req);
                 return { success: true, response };
             })
-            .post("/claudia", async req => {
-                console.log("claudia function called");
-                const response = await claudia(req);
+            .post("/ada", async req => {
+                console.log("ada function called");
+                const response = await ada(req);
                 return { success: true, response }
             })
             .post("/clean", async req => {

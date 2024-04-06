@@ -22,6 +22,7 @@
   "include": [
     "src/**/*",
     ".sys.ts",
-    "src/.secret.ts"
+    "src/.secret.ts",
+    "src/.stringKeeper.ts"
   ]
 }
